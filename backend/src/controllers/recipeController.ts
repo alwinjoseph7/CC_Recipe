@@ -20,7 +20,7 @@ module.exports.recipes_ingredients_get = async (
 	res: Response
 ) => {
 	try {
-		const { rows: ingredients } = await pool.query('SELECT * FROM INGREDIENT')
+		const { rows: ingredients } = await pool.query('select * FROM INGREDIENT')
 		res.status(200).json({ ingredients: ingredients.map((el) => el.iname) })
 	} catch (error) {
 		console.log(error.message)
