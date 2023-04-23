@@ -27,17 +27,17 @@ jobs:
       - name: Deploy Backend to AWS EC2
         uses: appleboy/scp-action@v0.1.4 
         with:
-          host: ${{ ec2-3-89-251-17.compute-1.amazonaws.com }}
-          username: ${{ ubuntu }}
-          key: ${{secrets.KEY}}
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.UNAME }}
+          key: ${{ secrets.KEY }}
           source: api
           target: /var/www/html/
 
       - name: Deploy Backend to AWS EC2
         uses: appleboy/scp-action@v0.1.4 
         with:
-          host: ${{ ec2-3-89-251-17.compute-1.amazonaws.com }}
-          username: ${{ ubuntu }}
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.UNAME }}
           key: ${{ secrets.KEY }}
           source: package.json
           target: /var/www/html/api

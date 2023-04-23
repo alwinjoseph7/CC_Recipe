@@ -34,8 +34,8 @@ jobs:
       - name: Deploy Frontend to AWS EC2
         uses: appleboy/scp-action@master
         with:
-          host: ${{ ec2-3-89-251-17.compute-1.amazonaws.com }}
-          username: ${{ ubuntu }}
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.UNAME }}
           key: ${{ secrets.KEY }}
           source: html
           target: /var/www/
