@@ -1,0 +1,41 @@
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'frontend/**/*'
+      - .github/workflows/build_frontend.yml
+      
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      BUILD_PATH: ../html
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3.5.2
+
+      - name: Setup node 
+        uses: actions/setup-node@v2.5.2
+        with: 
+          node-version: 16
+
+      - name: Setup yarn 
+        uses: DerYeger/yarn-setup-action@v1.0.1
+        with:
+          node-version: 16
+
+      - name: Build Frontend 
+        run: |
+          cd frontend
+          yarn install
+          yarn build
+
+      - name: Deploy Frontend to AWS EC2
+        uses: appleboy/scp-action@master
+        with:
+          host: ${{ secrets.AWS_EC2_HOST }}
+          username: ${{ secrets.AWS_EC2_USERNAME }}
+          key: ${{ secrets.AWS_EC2_PRIVATE_KEY }}
+          source: html
+          target: /var/www/

@@ -1,0 +1,43 @@
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'backend/**/*'
+      - .github/workflows/build_backend.yml
+      
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3.5.2
+
+      - name: Setup yarn 
+        uses: DerYeger/yarn-setup-action@v1.0.1
+        with:
+          node-version: 16
+
+      - name: Build Backend
+        run: |
+          cd backend
+          cp package.json ..
+          yarn install
+
+      - name: Deploy Backend to AWS EC2
+        uses: appleboy/scp-action@v0.1.4 
+        with:
+          host: ${{ secrets.AWS_EC2_HOST }}
+          username: ${{ secrets.AWS_EC2_USERNAME }}
+          key: ${{ secrets.AWS_EC2_PRIVATE_KEY }}
+          source: api
+          target: /var/www/html/
+
+      - name: Deploy Backend to AWS EC2
+        uses: appleboy/scp-action@v0.1.4 
+        with:
+          host: ${{ secrets.AWS_EC2_HOST }}
+          username: ${{ secrets.AWS_EC2_USERNAME }}
+          key: ${{ secrets.AWS_EC2_PRIVATE_KEY }}
+          source: package.json
+          target: /var/www/html/api
