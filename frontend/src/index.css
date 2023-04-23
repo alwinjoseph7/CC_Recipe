@@ -5,6 +5,6 @@
 .badge {
     @apply h-fit rounded-full font-semibold py-1 px-2 text-sm;
     width: 2.5rem;
-    height: 2.5rem;
+    height: 2.6rem;
     line-height: 2.5rem;
 }
