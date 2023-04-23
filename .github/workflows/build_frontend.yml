@@ -34,8 +34,34 @@ jobs:
       - name: Deploy Frontend to AWS EC2
         uses: appleboy/scp-action@master
         with:
-          host: ${{ secrets.AWS_EC2_HOST }}
-          username: ${{ secrets.AWS_EC2_USERNAME }}
-          key: ${{ secrets.AWS_EC2_PRIVATE_KEY }}
+          host: ${{ ec2-3-89-251-17.compute-1.amazonaws.com }}
+          username: ${{ ubuntu }}
+          key: ${{ -----BEGIN RSA PRIVATE KEY-----
+MIIEowIBAAKCAQEAjanVkko90e6fI26ilM+7NGcxcMQXPN852m7Xbo+L4t8n0VnV
+xjVyfIzdruKwrZzzqAkwN/v9HIzbuywhPkIbaoELBnk9uKSOfegtWA5H+2tGKrq6
+kywmjz+MmQ30+GX7Fhff336i7fSiEusPJYwEuD1MfqW/n0j59rGF1KTnfVmVFkkx
+6Lc6p6vcJws1sJxfHAWPpanAf9wHQtdOqiX2tq2hgwRejriB0ZwHsT8Eq8sDdb7i
+orcLmU6jYZGIaBj0ol0jS09NpYdsVvGivt4jWOt2E41djEVozN3ffm2TP2izmihW
+/FVxTuLonJLRQzpufKq9bub80CKl3GfvGjNIuwIDAQABAoIBAQCIppUf4oGzqgzU
+bvphteiNaiWk82K/E02JSXaCbfGwTTbpmVC/O/tN7cxB0OZA8q+PHh3nQyoriizD
+ZpRCrB4qJIRwIC/LluDkzzw+Prhs7FPpD+q94M7pS5HiajYuDqGf9DO+MTgVde+J
+dDlOLLy4xFivqk8n5YtJzoCcWN38aR8Pjzql1xxfgVN9ROj1HJ/ur0D+pH/eVeYa
+OO8SiKM14fzrPbMAouNe7tlPoKE6CzneZUTf6U975nn4hYgJmE9UlQwm4fNnFOQy
+1FURO6PZLu2zQp3SiSNqBM19l+uXRbToSqsY9jQJgA/6cbx4E2hJE0eR5cW8diqh
+mBcf1zkRAoGBAO26FRcEoGG3hvOk57Ospqm7SN98ZVycSuOsO8asqdS+jeT4vpNg
+sGxeFQsg7fQnjH8lW4a2S10Fr0B7AMVjtxivCr5BB3gpA4eEoFClv0Lxz+Pz3wAY
+u8pG06uG0JX6FzCe2BM4cbkcSeoOYgtR8nJG5HcXCNjY9i/L4Gz/ePHnAoGBAJiN
+cawoXUylOM+7MbqN4PBEqUjJWFogVZoPNHd6gnu6VxsXKu/A26k1nB+2FydL1UeC
+MS5OLrMAexqAAJT0Kq9xbeEsVhhUvXKtC0oXC16x0URyJLgGgWg3I5AVTF4UtheG
+U2bHSz6Vun5nTv6tLXOYSK59t4KLUfqvnUBCmQANAoGAQ3Y5Ie0YLmLMkzvK3Pwz
+15rkVTeR9DQONInd9MVu9IaW8dF9E4muxzHzutK/dDf88OADFzmILX+9egjt8RYZ
+EZIq9E6z9e99pumGLRy8KB1DJ6c/M2HReNecneKGMuljx1Jscxfjfep/N0KZpCi/
+KprfnsQUqKT5SBsNNyFQiyUCgYA/WWVd93kfDfF0mijBbo99VxXxSuNssca6bhv8
+jZxH4w6vCkTjQPQ25TNLG+Orhtsvkcn4j7Dm1olIbOVQ9cAQEQtvGWk7O11clK1+
+e+lVzoO3Z6sF3HW6oEMdXyrSWslvJXHW2WXOvICwYxgzvBiGyzNLeptNE6vcbTbg
+64b7tQKBgBxJ2vkHmj2VXjmEac7GRcoo27bq7zMxiavztJhGVzRC6SDf/B0244PT
+2bIpUUaTRDVGkmPI6Bz+VOhxJrfIcjii2XDu5W8LR70yc8E76AlmoscctIl04Cvk
+RLBRLin1LidMTaqDEKj+x2mGQGTuaHF0PC+zhXS6RswQQtIH7MUX
+-----END RSA PRIVATE KEY----- }}
           source: html
           target: /var/www/
